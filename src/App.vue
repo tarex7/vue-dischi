@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainHeader />
-    <TheMain :albums="albums" />
+    <TheMain :albums="albums" :isLoading="isLoading" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       albums: [],
+      isLoading: true,
       URI: "https://flynn.boolean.careers/exercises/api/array",
     };
   },
@@ -25,6 +26,10 @@ export default {
     getData() {
       axios.get(`${this.URI}/music`).then((res) => {
         this.albums = res.data.response;
+        const loadingDelay = () => {
+          this.isLoading = false;
+        };
+        setTimeout(loadingDelay, 3000);
       });
     },
   },

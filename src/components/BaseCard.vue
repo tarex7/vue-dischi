@@ -1,7 +1,10 @@
 .
 <template>
   <div class="card p-4 text-center text-white">
-    <figure><img class="img-fluid" :src="img" alt="title" /></figure>
+    <figure>
+      <img v-if="!isLoading" class="img-fluid" :src="img" alt="title" />
+      <BaseLoader v-else />
+    </figure>
     <h3 class="title text-uppercase mb-3">{{ title }}</h3>
     <h5 class="artist m-0 text-muted">{{ artist }}</h5>
     <h5 class="year text-muted">{{ year }}</h5>
@@ -9,6 +12,8 @@
 </template>
 
 <script>
+import BaseLoader from "./BaseLoader.vue";
+
 export default {
   name: "BaseCard",
   props: {
@@ -16,6 +21,10 @@ export default {
     title: String,
     img: String,
     year: String,
+    isLoading: Boolean,
+  },
+  components: {
+    BaseLoader,
   },
 };
 </script>

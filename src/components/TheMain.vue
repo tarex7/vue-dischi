@@ -9,6 +9,7 @@
             :img="album.poster"
             :title="album.title"
             :year="album.year"
+            :isLoading="isLoading"
           />
         </div>
       </div>
@@ -20,11 +21,13 @@
 import BaseCard from "./BaseCard.vue";
 export default {
   name: "TheMain",
+
   components: {
     BaseCard,
   },
   props: {
     albums: Array,
+    isLoading: Boolean,
   },
 };
 </script>
@@ -33,7 +36,10 @@ export default {
 .row {
   background-color: #1e2d3b;
 }
-
+.col {
+  height: 430px;
+  min-width: calc(100% / 5);
+}
 .card {
   height: 430px;
 }
