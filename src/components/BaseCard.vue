@@ -22,9 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 img {
-  min-width: 180px;
-  min-height: 200px;
-  object-fit: cover;
+  min-width: 185px;
+  min-height: 185px;
 }
 
 .card {
