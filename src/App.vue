@@ -1,7 +1,8 @@
 <template>
   <div>
-    <MainHeader />
-    <TheMain :albums="albums" :isLoading="isLoading" />
+    <TheMain :albums="albums" :isLoading="isLoading">
+      <MainHeader :albums="albums" />
+    </TheMain>
   </div>
 </template>
 
@@ -31,6 +32,9 @@ export default {
         };
         setTimeout(loadingDelay, 3000);
       });
+    },
+    log(select) {
+      console.log("stampato in app", select);
     },
   },
   mounted() {

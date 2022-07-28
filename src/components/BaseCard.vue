@@ -22,6 +22,7 @@ export default {
     img: String,
     year: String,
     isLoading: Boolean,
+    albums: Array,
   },
   components: {
     BaseLoader,
